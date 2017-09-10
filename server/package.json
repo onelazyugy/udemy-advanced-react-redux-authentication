@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "dev": "nodemon index.js" //any file change, it will start index.js
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "body-parser": "^1.18.0",
     "express": "^4.15.4",
     "mongoose": "^4.11.10",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "nodemon": "^1.12.0"
   }
 }
