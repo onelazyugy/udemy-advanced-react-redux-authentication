@@ -4,13 +4,24 @@
 server folder has all node/express code
 
 #### Nodemon
-watch anychages and restart node server and run index.js
+watch for any chages to server files and restart node server and run index.js
 
 #### mongoDB and mongoose
 database
 ```
 > mongod <--- start up your local mongodb
 ```
+
+#### Robomongo
+a UI tool for mongodb
+
+#### server APIs
+POST
+{
+    "email": "example@gmail.com,
+    "password": "123"
+}
+http://localhost:3090/signup
 
 ```
 > npm install

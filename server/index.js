@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const router = require('./router');
+const mongoose = require('mongoose');
+
+// DB setup
+// auth is the database on local mongo
+mongoose.connect('mongodb://localhost:auth/auth');
 
 // App Setup
 // morgan and bodyParser are middleware in express...incoming requests are pass into those middlewares first
