@@ -33,6 +33,15 @@ userSchema.pre("save", function(next) {
   });
 });
 
+//compare the password. Take the hashed password and compare with the user provied raw password
+userSchema.method.comparePassword = function(candidatePassword, callback) {
+    //this.password is the hashed password
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
+        if(err) {return callback(err);}
+        callback(null, isMatch);
+    })
+}
+
 // Create the model class
 // load the schema to mongoose
 const ModelClass = mongoose.model("user", userSchema);
