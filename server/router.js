@@ -11,6 +11,8 @@ module.exports = function(app) {
     res.send({hi: 'there'});
   });
 
+  
+
   //req = request | res = response | next = error handling
   app.post("/signup", Authentication.signup);
 };
