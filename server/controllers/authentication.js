@@ -9,13 +9,17 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+//----------------SIGNIN-------------------
 exports.signin = function(req, res, next) {
   // User has already had their email and password auth'd
   // We just need to give them a token
   console.log("signin user info: ", req.user);
+  //req.user <== user is from passport local strategy in the done callback
   res.send({ token: tokenForUser(req.user) });
 };
 
+
+//----------------SIGNUP-------------------
 exports.signup = function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
