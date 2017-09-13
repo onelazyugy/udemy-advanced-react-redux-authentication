@@ -25,5 +25,6 @@ http://localhost:3090/signup
 
 ```
 > npm install
-> npm run dev <--- run node/express server
+> npm run dev <--- run node/express server [http://localhost:3090]
+> npm run start <---run frontend [http://localhost:8080/]
 ```
