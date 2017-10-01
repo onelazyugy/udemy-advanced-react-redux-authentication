@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
-import * as actions from '../../actions';
+import * as actions from "../../actions";
 
 class Signin extends Component {
-
   constructor(props) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -16,8 +15,18 @@ class Signin extends Component {
     this.props.signinUser({ email, password });
   }
 
+  renderAlert() {
+    if(this.props.errroMessage) {
+      return (
+        <div className="alert alert-danger" >
+          <strong>Oops!</strong> {this.props.errroMessage}  
+        </div>
+      );
+    }
+  }
+
   render() {
-    const { handleSubmit, fields: { email, password }} = this.props;
+    const { handleSubmit, fields: { email, password } } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit)}>
         <fieldset className="form-group">
@@ -28,6 +37,7 @@ class Signin extends Component {
           <label>Password:</label>
           <input {...password} type="password" className="form-control" />
         </fieldset>
+        {this.renderAlert()}
         <button action="submit" className="btn btn-primary">
           Sign in
         </button>
@@ -36,8 +46,16 @@ class Signin extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { errroMessage: state.auth.error };
+}
+
 //reduxForm has mapDispatchToProps and mapStateToProps
-export default reduxForm({
-  form: "signin",
-  fields: ["email", "password"]
-}, null, actions)(Signin);
+export default reduxForm(
+  {
+    form: "signin",
+    fields: ["email", "password"]
+  },
+  mapStateToProps,
+  actions
+)(Signin);
