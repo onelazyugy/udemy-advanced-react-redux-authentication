@@ -9,7 +9,7 @@ const requireSignin = passport.authenticate("local", { session: false });
 module.exports = function(app) {
   //any request to '/' route, must pass the requireAuth step
   app.get("/", requireAuth, function(req, res) {
-    res.send({ hi: "there" });
+    res.send({ message: "super secret code is ABC123" });
   });
 
   app.post("/signin", requireSignin, Authentication.signin);
