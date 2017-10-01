@@ -12,6 +12,7 @@ class Signin extends Component {
   handleFormSubmit({ email, password }) {
     // Need to do something to log user in
     console.log(email, password);
+    debugger;
     this.props.signinUser({ email, password });
   }
 
